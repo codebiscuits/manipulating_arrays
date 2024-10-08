@@ -7,6 +7,8 @@ function addLastElement() {
         array.push(newElement); // add it to the array
         displayArray(); // call the function that updates the webpage
         document.querySelector("#addLastInput").value = ""; // reset the input field
+    } else {
+        window.alert("Please type an entry first") // display a message if the user hasn't filled in the field
     }
 }
 
@@ -23,6 +25,8 @@ function addFirstElement() {
         array.unshift(newElement); // add the new element to the start of the array
         displayArray(); // call the function that updates the webpage
         document.querySelector("#addLastInput").value = ""; // reset the input field
+    } else {
+        window.alert("Please type an entry first") // display a message if the user hasn't filled in the field
     }
 }
 
@@ -35,11 +39,14 @@ function removeFirstElement() {
 // splice
 function removeSpecificElement() {
     let index = document.querySelector("#spliceInput").value; // find the user's input string
-    if (index !== "") { // check input and ignore if empty
+
+    if ((index !== "") && (parseInt(index) < array.length)) { // check input and ignore if empty or out of range
         index = parseInt(index); // convert the string value to an integer
         array.splice(index, 1); // remove one item at the specified index
         displayArray(); // call the function that updates the webpage
         document.querySelector("#addLastInput").value = ""; // reset the input field
+    } else  {
+        window.alert("Please input an index number from the list below") // display a message to help the user
     }
 }
 
